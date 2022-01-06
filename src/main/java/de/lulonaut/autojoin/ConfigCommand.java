@@ -45,13 +45,13 @@ public class ConfigCommand extends CommandBase {
             if (args.length == 1) {
                 if (args[0].equals("set")) {
                     String host = mc.getCurrentServerData().serverIP;
-                    Config.setServer(mc.getCurrentServerData().serverIP);
-                    mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + "[AutoJoin] " + EnumChatFormatting.BLUE + "Server is now set to: " + EnumChatFormatting.GOLD + host));
+                    Config.setServer(host);
+                    sender.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + "[AutoJoin] " + EnumChatFormatting.BLUE + "Server is now set to: " + EnumChatFormatting.GOLD + host));
                     return;
                 } else if (args[0].equals("toggle")) {
                     boolean currentState = Config.getToggle();
                     Config.setToggle(!currentState);
-                    mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + "[AutoJoin] " + EnumChatFormatting.BLUE + "The mod is now " + (currentState ? EnumChatFormatting.RED + "disabled" : EnumChatFormatting.GOLD + "enabled")));
+                    sender.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + "[AutoJoin] " + EnumChatFormatting.BLUE + "The mod is now " + (currentState ? EnumChatFormatting.RED + "disabled" : EnumChatFormatting.GOLD + "enabled")));
                     return;
                 }
             }
